@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>DuocUC</ion-title>
+  </ion-toolbar>
+</ion-header>
+<br><br>
+
+<ion-content [fullscreen]="true">
+
+  <br><br><br><br><br><br><br><br><br>
+  <div class="custom-containers">
+    <h3>Inicia Sesión</h3>
+  </div>
+  <div class="custom-container">
+    <ion-input type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Ingresa un email válido"
+      errorText="Invalid email" ngModel email></ion-input>
+  </div>
+  <br>
+  <div class="custom-container">
+    <ion-input type="contraseña" fill="solid" label="Contraseña" labelPlacement="floating"
+      helperText="Ingresa contraseña"></ion-input>
+    <br>
+    <ion-button expand="full" class="bottom-right-button" [routerLink]="['/inicio']">Ingresa</ion-button>
+  </div>
+  
+</ion-content>

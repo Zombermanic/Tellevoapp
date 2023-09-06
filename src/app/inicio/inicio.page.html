@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      DuocUC
+    </ion-title>
+    <!--<ion-avatar> las medidad de las pantallas para deljarlo bonito todo
+      <img alt="Silhouette of a person's head"
+        src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">DuocUC</ion-title>
+      <ion-icon name="logo-ionic" color="primary"></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-button shape="round" [routerLink]="['/home']">volver</ion-button>
+    <!--tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
+    movilizacion propia-->
+    <div class="ion-padding">
+      <ion-card class="ion-text-center">
+        <ion-card-header>
+          <ion-card-title>Bienvenido (ususario) </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          ¡Gracias por usar nuestra aplicación!
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- aqui empieza lo que es el cuerpo mejor dicho los viajes-->
+    <ion-list>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Viaje 1</ion-card-title>
+          <ion-card-subtitle>dedes<br>
+            hasta: Duoc Antonio Varas
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-card-content class="ion-text-end">              
+              <ion-button  shape="round">Ver Información</ion-button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Viaje 2</ion-card-title>
+          <ion-card-subtitle>dedes<br>
+            hasta: Duoc Antonio Varas
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          espacio para 2 perosonas
+          <ion-card-content class="ion-text-end"> <ion-button shape="round">Ver
+              Informacion </ion-button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Viaje 3</ion-card-title>
+          <ion-card-subtitle>dedes<br>
+            hasta: Duoc Antonio Varas
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          espacio para 5 perosonas
+          <ion-card-content class="ion-text-end"> <ion-button shape="round">Ver
+              Informacion </ion-button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+  </ion-content>
+
+</ion-content>
