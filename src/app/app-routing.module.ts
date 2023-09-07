@@ -19,10 +19,6 @@ const routes: Routes = [
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
-  {
-    path: 'animation',
-    loadChildren: () => import('./animation/animation.module').then( m => m.AnimationPageModule)
-  },
 
 
 
