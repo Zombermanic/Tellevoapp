@@ -3,20 +3,13 @@
     <ion-title>
       DuocUC
     </ion-title>
-    <!--<ion-avatar> las medidad de las pantallas para deljarlo bonito todo
-      <img alt="Silhouette of a person's head"
-        src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    </ion-avatar>-->
+    <ion-button class="bottom-button">
+      <ion-icon slot="icon-only" class="small-icon" name="person-circle"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">DuocUC</ion-title>
-      <ion-icon name="logo-ionic" color="primary"></ion-icon>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-content>
     <ion-button shape="round" [routerLink]="['/home']">volver</ion-button>
