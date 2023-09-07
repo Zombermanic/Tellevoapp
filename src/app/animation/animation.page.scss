@@ -1,0 +1,18 @@
+.animacion-element {
+    width: 100px;
+    height: 100px;
+    animation: moveAndDisappear 1s linear;
+  }
+  
+  @keyframes moveAndDisappear {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+  
+  

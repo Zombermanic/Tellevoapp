@@ -2,3 +2,29 @@
   margin-top: 75px;
   padding: 16px;
 }
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.animacion-element {
+  width: 150px;
+  height: 150px;
+  position: static; /* Agrega posición absoluta para que la animación esté fuera de flujo */
+  left: 0; /* Inicia desde la izquierda de la pantalla */
+  animation: moveAndDisappear 3s linear infinite; /* Incrementa la duración para un recorrido más largo */
+}
+
+@keyframes moveAndDisappear {
+  0% {
+    transform: translateX(-50%); /* Empieza fuera de la pantalla a la izquierda */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(220%); /* Termina fuera de la pantalla a la derecha */
+    opacity: 0;
+  }
+}
