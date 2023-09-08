@@ -1,5 +1,5 @@
 .container {
-  margin-top: 75px;
+  margin-top: 40px;
   padding: 16px;
 }
 
@@ -24,7 +24,7 @@ ion-content {
     opacity: 1;
   }
   100% {
-    transform: translateX(220%); /* Termina fuera de la pantalla a la derecha */
+    transform: translateX(300%); /* Termina fuera de la pantalla a la derecha */
     opacity: 0;
   }
 }
