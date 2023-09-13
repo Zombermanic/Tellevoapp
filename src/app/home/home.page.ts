@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,34 +7,22 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  hide = true;
 
-  username: string = '';
-  password: string = '';
-
-  constructor(public alertController: AlertController) { }
-
-  ionViewDidEnter() {
-    // Limpiar los campos cuando la página se muestra
-    this.username = '';
-    this.password = '';
+  user = {
+    username: "",
+    password: ""
   }
 
-  login() {
-    if (this.username && this.password) {
-      this.showAlert('Inicio de sesión exitoso', `Bienvenido, ${this.username}!`);
-    } else {
-      this.showAlert('Error de inicio de sesión', 'Usuario o contraseña incorrectos');
+  constructor(private router: Router) {}
+
+  irInicio(){ 
+    let navigationExtras : NavigationExtras = {
+      state: {
+        user: this.user
+      }
     }
+    this.router.navigate(['/inicio'], navigationExtras)
   }
-
-  async showAlert(title: string, message: string) {
-    const alert = await this.alertController.create({
-      header: title,
-      message: message,
-      buttons: ['OK'],
-    });
-    await alert.present();
-  }
-
   
 }
