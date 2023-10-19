@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import InformacionUsuario
-from .serializer import InformacionSerializer
+from .models import InfoUsuario
+from .serializer import InfoSeralizer
 
 # Create your views here.
 
-class InformacionUsuasrioCreateView(generics.CreateAPIView):
-    queryset = InformacionUsuario.objects.all()
-    serializer_class = InformacionSerializer
+class InfoUsuarioCrearView(generics.CrearAPIView):
+    queryset = InfoUsuario.objects.all()
+    serializer_class = InfoSeralizer
