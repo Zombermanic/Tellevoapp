@@ -7,8 +7,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-
   <div class="container">
     <div class="row">
       <div class="ion-padding">
@@ -17,19 +15,18 @@
         </div>
         <hr>
         <hr>
-        <form #loginForm="ngForm">
+        <form [formGroup]="formularioLogin">
           <ion-item>
-            <ion-label position="floating">Usuario</ion-label>
-            <ion-input [(ngModel)]="user.username" name="username" required></ion-input>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="nombre"></ion-input>
           </ion-item>
-          <hr>
           <ion-item>
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+            <ion-input formControlName="password" type="password"></ion-input>
           </ion-item>
           <hr>
           <hr>
-          <h5>Recuerdame</h5>
+          <h5>Recuérdame</h5>
           <mat-slide-toggle></mat-slide-toggle>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
           <ion-router-link routerLink="/recuperar">Recuperar Contraseña</ion-router-link>
@@ -37,13 +34,13 @@
           <div style="text-align: center;">
             <ion-button shape="round" (click)="irInicio()">Ingresar</ion-button>
           </div>
-          <hr><hr>
-          <div class="animacion-element">
-            <img src="assets/Camaro.png" alt="Automóvil">
-          </div>
         </form>
+        <ion-button [routerLink]="['/registro']" size="default" shape="round" >Registrarse</ion-button><br>
+        <hr><hr>
+        <div class="animacion-element">
+          <img src="assets/Camaro.png" alt="Automóvil">
+        </div>
       </div>
     </div>
   </div>
-
 </ion-content>

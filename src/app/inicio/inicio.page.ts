@@ -9,7 +9,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class InicioPage{
 
   state: any;
-
   user: any;
 
   constructor(private activeroute : ActivatedRoute, private router : Router){

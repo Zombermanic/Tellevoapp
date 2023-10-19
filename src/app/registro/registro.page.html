@@ -1,0 +1,51 @@
+<ion-header collapse="fade" class="ion-no-border"> <!-- HEADER -->
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']">Volver atras</ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center ion-align-items-center">
+      <img alt="Logo Duoc UC" src="assets/icon/duoc.png" height="40" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" class="ion-align-items-center" style="padding: 8%;">
+    <div id="user-avatar"> <!-- AVATAR -->
+      <ion-avatar>
+        <img alt="Avatar" src="assets\icon\Shima.jpg" />
+      </ion-avatar>
+    </div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Registro</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="formularioRegistro" (keyup.enter)="guardar()">
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input formControlName="nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Confirmar contraseña</ion-label>
+            <ion-input formControlName="confirmacionPassword" type="password"></ion-input>
+          </ion-item>
+          <br>
+          <ion-button (click)="guardar()">Registrarse
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-title>@Ciero&Pimiento</ion-title>
+  </ion-toolbar>
+</ion-footer>
