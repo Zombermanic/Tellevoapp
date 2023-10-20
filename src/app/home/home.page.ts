@@ -70,6 +70,11 @@ export class HomePage implements OnInit {
     }
   }
 
+  recordarUsuarioChanged() {
+    // Almacena el estado actual de "Recuérdame" en localStorage
+    localStorage.setItem('recordarUsuario', this.recordarUsuario.toString());
+  }
+
   irInicio() {
     let navigationExtras: NavigationExtras = {
       state: {

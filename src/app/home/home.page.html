@@ -32,10 +32,11 @@
           <ion-router-link routerLink="/recuperar">Recuperar Contraseña</ion-router-link>
           <hr><hr><hr><hr><hr><hr><hr>
           <div style="text-align: center;">
-            <ion-button shape="round" (click)="irInicio()">Ingresar</ion-button>
+            <ion-button (click)="ingresar()"  size="default" shape="round">Ingresar</ion-button>
+            <ion-button [routerLink]="['/registro']" size="default" shape="round" >Registrarse</ion-button><br>
           </div>
         </form>
-        <ion-button [routerLink]="['/registro']" size="default" shape="round" >Registrarse</ion-button><br>
+        
         <hr><hr>
         <div class="animacion-element">
           <img src="assets/Camaro.png" alt="Automóvil">
