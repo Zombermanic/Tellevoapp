@@ -16,7 +16,6 @@ import { RouterModule } from '@angular/router';
     HomePageRoutingModule,
     MatSlideToggleModule,
     RouterModule,
-    ReactiveFormsModule
   ],
   declarations: [HomePage]
 })
