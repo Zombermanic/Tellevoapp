@@ -11,7 +11,7 @@ export class ApiDBService {
   constructor(private http: HttpClient) { }
 
   infoDatos(datos:any){
-    return this.http.post(`${this.apiUrl}informacion-usuario/`, datos);
+    return this.http.post(`${this.apiUrl}info-user/`, datos);
   }
 
 }
