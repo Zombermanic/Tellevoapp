@@ -1,26 +1,23 @@
-<ion-header collapse="fade" class="ion-no-border"> <!-- HEADER -->
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button [routerLink]="['/login']">Volver atras</ion-button>
+      <ion-button shape="round" color="medium" [routerLink]="['/home']">Volver atras</ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center ion-align-items-center">
-      <img alt="Logo Duoc UC" src="assets/icon/duoc.png" height="40" />
+    <ion-title>
+      <img alt="Logo Duoc UC" src="assets/LogoDuoc.png" height="30" />
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div id="container" class="ion-align-items-center" style="padding: 8%;">
-    <div id="user-avatar"> <!-- AVATAR -->
-      <ion-avatar>
-        <img alt="Avatar" src="assets\icon\Shima.jpg" />
-      </ion-avatar>
-    </div>
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Registro</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="row">
+      <div class="ion-padding">
+        <div class="custom-containers">
+          <br><br>
+          <img src="assets/User.png" width="150px" alt="Automóvil" style="margin-left: 70px;">
+        </div>
+        <br>
         <form [formGroup]="formularioContrasena">
           <ion-item>
             <ion-label position="floating">Nombre de Usuario</ion-label>
@@ -31,17 +28,13 @@
             <ion-input formControlName="nuevaContrasena" type="password"></ion-input>
           </ion-item>
         </form>
-        <br>
-        <ion-button expand="full" (click)="cambiarContrasena()">
-          Cambiar Contraseña
-        </ion-button>
-
-      </ion-card-content>
-    </ion-card>
+        <br><br>
+        <div style="text-align: center;">
+          <ion-button shape="round" (click)="cambiarContrasena()">
+            Cambiar Contraseña
+          </ion-button>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
-<ion-footer class="ion-no-border">
-  <ion-toolbar class="ion-text-center">
-    <ion-title>@Ciero&Pimiento</ion-title>
-  </ion-toolbar>
-</ion-footer>

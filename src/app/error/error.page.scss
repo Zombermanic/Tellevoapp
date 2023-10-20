@@ -5,29 +5,9 @@ ion-content {
     /*Color de la letra*/
 }
 
-
-.centered-content {
-    text-align: center;
-    /* Si deseas centrar el texto horizontalmente */
-}
-
 .texto-grande {
-    font-size: 20px;
+    font-size: 25px;
     /* Tamaño de fuente en píxeles */
-}
-
-.boton-derecha {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150vh;
-    /* Esto hace que el contenido ocupe toda la altura de la pantalla */
 }
 
 .centered-content {
