@@ -1,0 +1,37 @@
+ion-content {
+    --background: #fffb00ce;
+    /*Fondo de la pagina*/
+    --color: #000000;
+    /*Color de la letra*/
+}
+
+
+.centered-content {
+    text-align: center;
+    /* Si deseas centrar el texto horizontalmente */
+}
+
+.texto-grande {
+    font-size: 20px;
+    /* Tamaño de fuente en píxeles */
+}
+
+.boton-derecha {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    /* Esto hace que el contenido ocupe toda la altura de la pantalla */
+}
+
+.centered-content {
+    text-align: center;
+    /* Centra el contenido horizontalmente */
+}
+  
