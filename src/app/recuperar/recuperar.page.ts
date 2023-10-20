@@ -62,7 +62,7 @@ export class RecuperarPage {
         await successAlert.present();
 
         // Navega al inicio de sesión
-        this.navCtrl.navigateBack('/login');
+        this.navCtrl.navigateBack('/home');
         await successAlert.present();
       } else {
         // Muestra un mensaje de error si el nombre de usuario no coincide

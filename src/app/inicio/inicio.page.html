@@ -3,16 +3,15 @@
     <ion-title>
       DuocUC
     </ion-title>
-    <ion-button class="bottom-button">
-      <ion-icon slot="icon-only" class="small-icon" name="person-circle"></ion-icon>
-    </ion-button>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()">Volver atras</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
   <ion-content>
-    <ion-button shape="round" [routerLink]="['/home']">volver</ion-button>
     <!--tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
     movilizacion propia-->
     <div class="ion-padding">

@@ -31,6 +31,6 @@ export class InicioPage implements OnInit {
 
     // Redirige al usuario a la página de inicio de sesión
     console.log('Cerrando sesión...');
-    this.navCtrl.navigateRoot('login');
+    this.navCtrl.navigateRoot('home');
   }
 }
