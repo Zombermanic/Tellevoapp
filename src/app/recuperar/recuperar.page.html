@@ -15,7 +15,7 @@
       <div class="ion-padding">
         <div class="custom-containers">
           <br><br>
-          <img src="assets/User.png" width="150px" alt="Automóvil" style="margin-left: 70px;">
+          <img src="assets/User.png" width="150px" alt="Automóvil" style="margin-left: 67px;">
         </div>
         <br>
         <form [formGroup]="formularioContrasena">
@@ -26,6 +26,14 @@
           <ion-item>
             <ion-label position="floating">Nueva Contraseña</ion-label>
             <ion-input formControlName="nuevaContrasena" type="password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">¿Qué tipo de usuario es?</ion-label>
+            <ion-select name="tipoUsuario" required>
+              <ion-select-option value="Conductor">Conductor</ion-select-option>
+              <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+              <ion-select-option value="Administrador">Administrador</ion-select-option>
+            </ion-select>
           </ion-item>
         </form>
         <br><br>
