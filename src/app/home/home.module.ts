@@ -7,7 +7,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HomePageRoutingModule } from './home-routing.module';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   imports: [
     CommonModule,

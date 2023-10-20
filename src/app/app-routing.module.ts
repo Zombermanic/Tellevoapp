@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'error',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)
+  },
+
 
 
 
