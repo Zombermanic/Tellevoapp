@@ -10,36 +10,30 @@
   <div class="container">
     <div class="row">
       <div class="ion-padding">
-        <div class="custom-containers">
-          <br><br>
+        <div class="custom-containers" style="padding-top: 12%;">
           <img src="assets/TeLlevoApp.png" width="200px" alt="Automóvil" style="margin-left: 67px;">
-        </div>
-        <hr>
-        <hr>
+        </div><br>
         <form [formGroup]="formularioLogin">
-          <ion-item>
-            <ion-label position="floating">Nombre</ion-label>
-            <ion-input formControlName="nombre"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input formControlName="password" type="password"></ion-input>
-          </ion-item>
-          <hr>
-          <hr>
-          <h5>Recuérdame</h5>
-          <mat-slide-toggle></mat-slide-toggle>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-          <ion-router-link routerLink="/recuperar">Recuperar Contraseña</ion-router-link>
-          <hr><hr><hr><hr><hr><hr><hr>
-          <div style="text-align: center;">
-            <ion-button (click)="ingresar()"  size="default" shape="round">Ingresar</ion-button>
-            <ion-button [routerLink]="['/registro']" size="default" shape="round" >Registrarse</ion-button><br>
+          <div class="labelpo">
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input formControlName="nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+            <br>
+            <h5>Recuérdame</h5>
+            <mat-slide-toggle>recuerdame</mat-slide-toggle>
+            <ion-router-link routerLink="/recuperar">Recuperar Contraseña</ion-router-link>
           </div>
+          <div style="text-align: center; padding-top: 20%;">
+            <ion-button (click)="ingresar()" size="default" shape="round">Ingresar</ion-button>
+            <ion-button [routerLink]="['/registro']" size="default" shape="round">Registrarse</ion-button><br>
+          </div>  
         </form>
-        
-        <hr><hr>
-        <div class="animacion-element">
+        <div class="animacion-element" style="padding-top: 15%;">
           <img src="assets/Camaro.png" alt="Automóvil">
         </div>
       </div>

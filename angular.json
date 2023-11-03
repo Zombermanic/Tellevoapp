@@ -34,9 +34,12 @@
             "styles": [
               "@angular/material/prebuilt-themes/purple-green.css",
               "src/theme/variables.scss",
-              "src/global.scss"
+              "src/global.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -118,9 +121,12 @@
             "styles": [
               "@angular/material/prebuilt-themes/purple-green.css",
               "src/theme/variables.scss",
-              "src/global.scss"
+              "src/global.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "ci": {
