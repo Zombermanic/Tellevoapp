@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'ApiApp',
     'django_mysql',
     
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'ApiDB.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tellevodb',
+        'NAME': 'test',
         'USER': 'root',
-        'PASSWORD': 'PHW#84#jeor',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
         'OPTIONS': {
