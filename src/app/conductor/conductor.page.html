@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img alt="Logo Duoc UC" src="assets/LogoDuoc.png" height="30" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round" color="medium" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-content>
+    <!--tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
+    movilizacion propia-->
+    <div class="ion-padding">
+      <ion-card class="ion-text-center">
+        <ion-card-header>
+          <ion-card-title>Bienvenido Conductor {{ nombreUsuario }}! </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Cúal es tu estación de metro más cercana según tu destino?
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- aqui empieza lo que es el cuerpo -->
+    <ion-list>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Manuel Montt</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-content class="ion-text-end"> 
+            <button class="btn btn-secondary">Seleccionar</button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <br>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Universidad De Chile</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-content class="ion-text-end"> 
+            <button class="btn btn-secondary">Seleccionar</button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <br>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Metro Los Héroes</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-card-content class="ion-text-end"> 
+            <button class="btn btn-secondary">Seleccionar</button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-list>
+
+  </ion-content>
+
+</ion-content>

@@ -6,28 +6,32 @@ import { IngresarGuard } from './ingresar.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
     canActivate: [NoIngresadoGuard]
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'conductor',
     pathMatch: 'full'
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
+    loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioPageModule),
     canActivate: [IngresarGuard]
   },
   {
     path: 'recuperar',
-    loadChildren: () => import('./recuperar/recuperar.module').then( m => m.RecuperarPageModule),
+    loadChildren: () => import('./recuperar/recuperar.module').then(m => m.RecuperarPageModule),
     canActivate: [NoIngresadoGuard]
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule),
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
     canActivate: [NoIngresadoGuard]
+  }, 
+  {
+    path: 'conductor',
+    loadChildren: () => import('./conductor/conductor.module').then(m => m.ConductorPageModule)
   },
   {
     path: 'eleccion',
@@ -35,8 +39,11 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+    loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
   },
+
+
+
 
 ];
 

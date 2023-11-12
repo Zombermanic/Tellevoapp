@@ -82,5 +82,6 @@ export class HomePage implements OnInit {
       }
     }
     this.router.navigate(['/inicio'], navigationExtras);
+    this.router.navigate(['/conductor'], navigationExtras);
   }
 }
