@@ -33,4 +33,10 @@ export class InicioPage implements OnInit {
     console.log('Cerrando sesión...');
     this.navCtrl.navigateRoot('home');
   }
+
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 }

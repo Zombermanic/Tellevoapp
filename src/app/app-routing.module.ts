@@ -30,6 +30,10 @@ const routes: Routes = [
     canActivate: [NoIngresadoGuard]
   },
   {
+    path: 'eleccion',
+    loadChildren: () => import('./eleccion/eleccion.module').then( m => m.EleccionPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
   },

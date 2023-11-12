@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="cerrarSesion()" default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title><img alt="Logo Duoc UC" src="assets/LogoDuoc.png" height="30" /></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-content>
+    <!--Carta de bienvenida usuario-->
+    <div class="ion-padding">
+      <ion-card class="ion-text-center">
+        <ion-card-header>
+          <ion-card-title>Bienvenido</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Seleccione su tipo de usuario
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Cartas-->
+    <ion-list>
+      <br><br>
+      <!--Carta 1-->
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Conductor</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-card-content class="ion-text-end">
+            <ion-button class="bottom-button" routerLink="/" shape="round">Seleccionar</ion-button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+      <!--Carta -->
+      <br><br>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Pasajero</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-card-content class="ion-text-end">
+            <ion-button routerLink="/home" class="bottom-button" shape="round">Seleccionar</ion-button>
+          </ion-card-content>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+
+
+
+  </ion-content>
+
+</ion-content>

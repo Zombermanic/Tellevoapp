@@ -27,49 +27,99 @@
 
     <!-- aqui empieza lo que es el cuerpo mejor dicho los viajes-->
     <ion-list>
+      <!--Carta 1-->
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Viaje 1</ion-card-title>
-          <ion-card-subtitle>dedes<br>
-            hasta: Duoc Antonio Varas
-          </ion-card-subtitle>
+          <ion-card-title>Metro Manuel Montt</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
         </ion-card-header>
-
         <ion-card-content>
-          <ion-card-content class="ion-text-end">              
-              <ion-button  shape="round">Ver Información</ion-button>
+          <ion-card-content class="ion-text-end">
+            <ion-button expand="block" (click)="setOpen(true)">Selccionar</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Datos del viaje</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <h2>
+                    Conductor: David Salas <br>
+                    Patente: RH VY 90 <br>
+                    Valor viaje: $1.000
+                  </h2>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
           </ion-card-content>
         </ion-card-content>
       </ion-card>
-
+      <br>
+      <!--Carta 2-->
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Viaje 2</ion-card-title>
-          <ion-card-subtitle>dedes<br>
-            hasta: Duoc Antonio Varas
-          </ion-card-subtitle>
+          <ion-card-title>Metro Universidad de Chile</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
         </ion-card-header>
-
         <ion-card-content>
-          espacio para 2 perosonas
-          <ion-card-content class="ion-text-end"> <ion-button shape="round">Ver
-              Informacion </ion-button>
+          <ion-card-content class="ion-text-end">
+            <ion-button expand="block" (click)="setOpen(true)">Selccionar</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Datos del viaje</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <h2>
+                    Conductor: Leonardo Carrillo<br>
+                    Patente: PJ SD 23 <br>
+                    Valor viaje: $6.000
+                  </h2>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
           </ion-card-content>
         </ion-card-content>
       </ion-card>
+      <br>
 
+      <!--Carta 3-->
       <ion-card>
         <ion-card-header>
-          <ion-card-title>Viaje 3</ion-card-title>
-          <ion-card-subtitle>dedes<br>
-            hasta: Duoc Antonio Varas
-          </ion-card-subtitle>
+          <ion-card-title>Metro Los Héroes</ion-card-title>
+          <ion-card-subtitle>Desde:Antonio varas 666.</ion-card-subtitle>
         </ion-card-header>
-
         <ion-card-content>
-          espacio para 5 perosonas
-          <ion-card-content class="ion-text-end"> <ion-button shape="round">Ver
-              Informacion </ion-button>
+          <ion-card-content class="ion-text-end">
+            <ion-button expand="block" (click)="setOpen(true)">Selccionar</ion-button>
+            <ion-modal [isOpen]="isModalOpen">
+              <ng-template>
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-title>Datos del viaje</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <h2>
+                    Conductor: Eduardo Pozo <br>
+                    Patente: RB TS 47 <br>
+                    Valor viaje: $3700
+                  </h2>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
           </ion-card-content>
         </ion-card-content>
       </ion-card>
