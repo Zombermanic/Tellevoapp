@@ -4,20 +4,21 @@
       <img alt="Logo Duoc UC" src="assets/LogoDuoc.png" height="30" />
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button shape="round" color="medium" (click)="cerrarSesion()">Cerrar Sesión</ion-button>
+      <!--<ion-button shape="round" color="medium" (click)="cerrarSesion()">Cerrar Sesión</ion-button>-->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
+<!--
 <ion-content [fullscreen]="true">
-
+tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
+    movilizacion propia
   <ion-content>
-    <!--tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
-    movilizacion propia-->
+    tenemos que cambiar ersto pero aqui estamos supoiniendo que el ususario no tiene
+    movilizacion propia
     <div class="ion-padding">
       <ion-card class="ion-text-center">
         <ion-card-header>
-          <ion-card-title>Bienvenido {{ nombreUsuario }} </ion-card-title>
+          <ion-card-title>Bienvenido {{ user?.usuario }} </ion-card-title>
         </ion-card-header>
         <ion-card-content>
           ¡Gracias por usar nuestra aplicación!
@@ -25,9 +26,9 @@
       </ion-card>
     </div>
 
-    <!-- aqui empieza lo que es el cuerpo mejor dicho los viajes-->
+    aqui empieza lo que es el cuerpo mejor dicho los viajes
     <ion-list>
-      <!--Carta 1-->
+      Carta 1
       <ion-card>
         <ion-card-header>
           <ion-card-title>Metro Manuel Montt</ion-card-title>
@@ -42,7 +43,6 @@
                   <ion-toolbar>
                     <ion-title>Datos del viaje</ion-title>
                     <ion-buttons slot="end">
-                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -59,7 +59,7 @@
         </ion-card-content>
       </ion-card>
       <br>
-      <!--Carta 2-->
+      Carta 2
       <ion-card>
         <ion-card-header>
           <ion-card-title>Metro Universidad de Chile</ion-card-title>
@@ -74,7 +74,6 @@
                   <ion-toolbar>
                     <ion-title>Datos del viaje</ion-title>
                     <ion-buttons slot="end">
-                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -92,7 +91,7 @@
       </ion-card>
       <br>
 
-      <!--Carta 3-->
+      Carta 3
       <ion-card>
         <ion-card-header>
           <ion-card-title>Metro Los Héroes</ion-card-title>
@@ -100,14 +99,11 @@
         </ion-card-header>
         <ion-card-content>
           <ion-card-content class="ion-text-end">
-            <ion-button expand="block" (click)="setOpen(true)">Selccionar</ion-button>
-            <ion-modal [isOpen]="isModalOpen">
               <ng-template>
                 <ion-header>
                   <ion-toolbar>
                     <ion-title>Datos del viaje</ion-title>
                     <ion-buttons slot="end">
-                      <ion-button (click)="setOpen(false)">Cerrar</ion-button>
                     </ion-buttons>
                   </ion-toolbar>
                 </ion-header>
@@ -119,7 +115,7 @@
                   </h2>
                 </ion-content>
               </ng-template>
-            </ion-modal>
+            
           </ion-card-content>
         </ion-card-content>
       </ion-card>
@@ -128,3 +124,4 @@
   </ion-content>
 
 </ion-content>
+-->

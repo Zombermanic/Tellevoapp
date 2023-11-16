@@ -1,87 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NavigationExtras } from '@angular/router';
-import { Observable } from 'rxjs';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from '@angular/forms';
-import { AlertController, NavController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
+import { AUTService } from 'src/app/aut.service';
+import { AlumnosService } from '../service/autenticacion.service';
 
 @Component({
   selector: 'home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
+  user = {
+    Gmail: "",         
+    password: ""     
+  };
 
-  formularioLogin: FormGroup;
-  recordarUsuario: boolean = false; // Variable para controlar la opción de "Recuérdame"
+  constructor(private router: Router, private authService: AUTService, private api: AlumnosService) {}
 
-  constructor(private router: Router,
-    public fb: FormBuilder,
-    public alertController: AlertController,
-    public navCtrl: NavController) { 
+  login() {
+    this.api.getAlumnos().subscribe(
+      (alumnos) => {
+        if (alumnos && alumnos.length > 0) {
+          const usuario = this.user.Gmail.toLowerCase();
+          const password = this.user.password.toLowerCase();
 
-    this.formularioLogin = this.fb.group({
-      'nombre': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required)
-    })
+          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
 
-  }
+          if (alumno && alumno.password.toLowerCase() === password) {
+            console.log('Autenticación exitosa');
 
-  ngOnInit() {
-    
-  }
+            let navigationExtras: NavigationExtras = {
+              state: {
+                user: this.user,
+                alumno: alumno
+              }
+            };
 
-  async ingresar() {
-    var f = this.formularioLogin.value;
-    var usuarioString = localStorage.getItem('usuario');
-  
-    if (usuarioString) {
-      // Si el valor de usuarioString no es nulo, intenta analizarlo como objeto JSON
-      var usuario = JSON.parse(usuarioString);
-  
-      if (usuario.nombre == f.nombre && usuario.password == f.password) {
-        console.log('Ingresado');
-        localStorage.setItem('ingresado','true')
-        this.navCtrl.navigateRoot('inicio')
-      } else {
-        const alert = await this.alertController.create({
-          header: 'Datos incorrectos',
-          message: 'Los datos que ingresaste son incorrectos.',
-          buttons: ['Aceptar']
-        });
-  
-        await alert.present();
+            this.router.navigate(['/inicio'], navigationExtras);
+          } else {
+            console.log('Autenticación fallida: Credenciales incorrectas');
+            this.router.navigate(['/home']);
+          }
+        } else {
+          console.error('La respuesta de la API es un array vacío o nulo');
+          this.router.navigate(['/home']);
+        }
+      },
+      (error) => {
+        console.error('Error al obtener datos de la API', error);
+        if (error.status === 401) {
+          console.log('Error de autenticación: Credenciales incorrectas');
+          this.router.navigate(['/home']);
+        } else {
+          console.error('Otro tipo de error:', error);
+          this.router.navigate(['/home']);
+        }
       }
-    } else {
-      // Si no hay usuario en localStorage, muestra un mensaje de error
-      const alert = await this.alertController.create({
-        header: 'No se encontró el usuario',
-        message: 'No hay un usuario almacenado en el dispositivo.',
-        buttons: ['Aceptar']
-      });
-  
-      await alert.present();
-    }
-  }
-
-  recordarUsuarioChanged() {
-    // Almacena el estado actual de "Recuérdame" en localStorage
-    localStorage.setItem('recordarUsuario', this.recordarUsuario.toString());
-  }
-
-  irInicio() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        // Puedes pasar cualquier dato que desees al componente "inicio" aquí
-      }
-    }
-    this.router.navigate(['/inicio'], navigationExtras);
-    this.router.navigate(['/conductor'], navigationExtras);
+    );
   }
 }

@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NoIngresadoGuard } from './no-ingresado.guard';
-import { IngresarGuard } from './ingresar.guard';
+//import { IngresarGuard } from './ingresar.guard';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [NoIngresadoGuard]
   },
   {
     path: '',
-    redirectTo: 'conductor',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioPageModule),
-    canActivate: [IngresarGuard]
+    
   },
   {
     path: 'recuperar',
@@ -41,9 +40,6 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./error/error.module').then(m => m.ErrorPageModule)
   },
-
-
-
 
 ];
 

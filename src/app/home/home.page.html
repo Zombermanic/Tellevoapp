@@ -13,25 +13,17 @@
         <div class="custom-containers" style="padding-top: 12%;">
           <img src="assets/TeLlevoApp.png" width="200px" alt="Automóvil" style="margin-left: 67px;">
         </div><br>
-        <form [formGroup]="formularioLogin">
-          <div class="labelpo">
-            <ion-item>
-              <ion-label position="floating">Nombre</ion-label>
-              <ion-input formControlName="nombre"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Contraseña</ion-label>
-              <ion-input formControlName="password" type="password"></ion-input>
-            </ion-item>
-            <br>
-            <h5>Recuérdame</h5>
-            <mat-slide-toggle>recuerdame</mat-slide-toggle>
-            <ion-router-link routerLink="/recuperar">Recuperar Contraseña</ion-router-link>
-          </div>
-          <div style="text-align: center; padding-top: 20%;">
-            <ion-button (click)="ingresar()" size="default" shape="round">Ingresar</ion-button>
-            <ion-button [routerLink]="['/registro']" size="default" shape="round">Registrarse</ion-button><br>
-          </div>  
+        <form>
+          <ion-item>
+            <ion-label position="floating">gmail</ion-label>
+            <ion-input  [(ngModel)]="user.Gmail" name="gmail " ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input  [(ngModel)]="user.password" name="password" type="password" ></ion-input>
+          </ion-item>
+          <br>
+          <ion-button type="button" expand="full" color="warning" (click)="login()">Iniciar Sesión</ion-button>
         </form>
         <div class="animacion-element" style="padding-top: 15%;">
           <img src="assets/Camaro.png" alt="Automóvil">

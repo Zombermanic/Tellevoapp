@@ -4,4 +4,4 @@ from ApiApp.models import InfoUsuario
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = InfoUsuario
-        fields = ['user', 'password','tipo_usuario']
+        fields = ['user', 'password']
