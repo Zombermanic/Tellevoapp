@@ -10,7 +10,7 @@ import { AlumnosService } from '../service/autenticacion.service';
 })
 export class HomePage {
   user = {
-    Gmail: "",         
+    user: "",         
     password: ""     
   };
 
@@ -20,10 +20,10 @@ export class HomePage {
     this.api.getAlumnos().subscribe(
       (alumnos) => {
         if (alumnos && alumnos.length > 0) {
-          const usuario = this.user.Gmail.toLowerCase();
+          const usuario = this.user.user.toLowerCase();
           const password = this.user.password.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
+          const alumno = alumnos.find((alumno) => alumno.user.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
 
           if (alumno && alumno.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');

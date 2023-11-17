@@ -15,15 +15,22 @@
         </div><br>
         <form>
           <ion-item>
-            <ion-label position="floating">gmail</ion-label>
-            <ion-input  [(ngModel)]="user.Gmail" name="gmail " ></ion-input>
+            <ion-label position="floating">User</ion-label>
+            <ion-input [(ngModel)]="user.user" name="user "></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="floating">Contraseña</ion-label>
-            <ion-input  [(ngModel)]="user.password" name="password" type="password" ></ion-input>
+            <ion-input [(ngModel)]="user.password" name="password" type="password"></ion-input>
           </ion-item>
           <br>
-          <ion-button type="button" expand="full" color="warning" (click)="login()">Iniciar Sesión</ion-button>
+          <div class="ion-text-end">
+            <ion-ref class="enlace" routerLink="/recuperar">Recuperar Contraseña</ion-ref>
+          </div>
+          <br>
+          <br>
+          <div class="ion-text-center">
+            <ion-button type="button" shape="round" (click)="login()">Iniciar Sesión</ion-button>
+          </div>
         </form>
         <div class="animacion-element" style="padding-top: 15%;">
           <img src="assets/Camaro.png" alt="Automóvil">
