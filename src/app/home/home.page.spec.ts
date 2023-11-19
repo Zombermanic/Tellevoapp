@@ -17,6 +17,9 @@ describe('HomePage', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  beforeEach(async () => {
+    sesion
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();

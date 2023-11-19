@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AUTService } from 'src/app/aut.service';
 import { AlumnosService } from '../service/autenticacion.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'home',
@@ -10,17 +11,24 @@ import { AlumnosService } from '../service/autenticacion.service';
 })
 export class HomePage {
   user = {
-    user: "",         
+    Gmail: "",         
     password: ""     
   };
+  rememberMe!: boolean;
 
-  constructor(private router: Router, private authService: AUTService, private api: AlumnosService) {}
+  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage) {
+    this.initStorage();
+  }
 
+  async initStorage(){
+    this.storage = await this.storage.create();
+    console.log('Storage esta listo');
+  }
   login() {
     this.api.getAlumnos().subscribe(
       (alumnos) => {
         if (alumnos && alumnos.length > 0) {
-          const usuario = this.user.user.toLowerCase();
+          const usuario = this.user.Gmail.toLowerCase();
           const password = this.user.password.toLowerCase();
 
           const alumno = alumnos.find((alumno) => alumno.user.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
