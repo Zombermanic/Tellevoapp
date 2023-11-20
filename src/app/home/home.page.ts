@@ -36,13 +36,16 @@ export class HomePage {
           if (alumno && alumno.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');
 
+            const correoUsuario = this.user.Gmail;
+
+            this.redirigirSegunCorreo(correoUsuario);
+
             let navigationExtras: NavigationExtras = {
               state: {
                 user: this.user,
                 alumno: alumno
               }
             };
-            this.router.navigate(['/inicio'], navigationExtras);
             if (this.rememberMe) {
               localStorage.setItem('credentials', JSON.stringify({ Gmail: this.user.Gmail, Contrasena: this.user.password }));
               console.log('Credenciales guardadas en localStorage');
@@ -73,4 +76,18 @@ export class HomePage {
       }
     );
   }
+// Método para redirigir según el correo electrónico
+private redirigirSegunCorreo(correo: string) {
+  // Obtener la parte del dominio del correo electrónico
+  const dominio = correo.split('@')[1];
+
+  // Lógica de redirección basada en la parte del dominio
+  if (dominio === 'duoc.cl') {
+    // Redirigir a una página específica para correos con dominio "duoc.cl"
+    this.router.navigate(['/inicio']);
+  } else if (dominio === 'auto.duoc.cl') {
+    // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
+    this.router.navigate(['/conductor']);
+}
+}
 }
