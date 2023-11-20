@@ -31,7 +31,7 @@ export class HomePage {
           const usuario = this.user.Gmail.toLowerCase();
           const password = this.user.password.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.user.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
+          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
 
           if (alumno && alumno.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');
@@ -42,8 +42,16 @@ export class HomePage {
                 alumno: alumno
               }
             };
-
             this.router.navigate(['/inicio'], navigationExtras);
+            if (this.rememberMe) {
+              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.user.Gmail, Contrasena: this.user.password }));
+              console.log('Credenciales guardadas en localStorage');
+            } else {
+              // Si no está marcado, elimina las credenciales almacenadas
+              localStorage.removeItem('credentials');
+              console.log('Credenciales eliminadas de localStorage');
+            }
+
           } else {
             console.log('Autenticación fallida: Credenciales incorrectas');
             this.router.navigate(['/home']);

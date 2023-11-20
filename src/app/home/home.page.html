@@ -29,14 +29,13 @@
             <ion-ref class="enlace" routerLink="/recuperar">Recuperar Contraseña</ion-ref>
           </div>
           <br>
-          <br>
           <div class="ion-text-center">
-
             <ion-button type="button" shape="round" (click)="login()">Iniciar
               Sesión</ion-button>
           </div>
-
         </form>
+        <ion-label>Recordar credenciales</ion-label>
+        <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox>
         <div class="animacion-element" style="padding-top: 15%;">
           <img src="assets/Camaro.png" alt="Automóvil">
         </div>
