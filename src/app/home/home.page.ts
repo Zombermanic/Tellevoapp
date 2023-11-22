@@ -16,7 +16,7 @@ export class HomePage {
   };
   rememberMe!: boolean;
 
-  constructor(private router: Router, private authService: AUTService, private api: AlumnosService, private storage: Storage) {
+  constructor(private router: Router, private authService: AUTService, public api: AlumnosService, private storage: Storage) {
     this.initStorage();
   }
 

@@ -1,17 +1,40 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { AlumnosService } from '../service/autenticacion.service';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('HomePage', () => {
   let component: HomePage;
   let fixture: ComponentFixture<HomePage>;
+  let mockRouter: any;
+  let mockApiService: any;
+  let mockStorage: any;
 
   beforeEach(
     waitForAsync(() => {
+      mockRouter = {
+        navigate: jasmine.createSpy('navigate')
+      };
+
+      mockApiService = {
+        getAlumnos: jasmine.createSpy('getAlumnos').and.returnValue(of([]))
+      };
+
+      mockStorage = {
+        create: jasmine.createSpy('create').and.returnValue(Promise.resolve())
+      };
+
       TestBed.configureTestingModule({
         declarations: [HomePage],
         imports: [IonicModule.forRoot(), FormsModule],
+        providers: [
+          { provide: Router, useValue: mockRouter },
+          { provide: AlumnosService, useValue: mockApiService },
+          { provide: Storage, useValue: mockStorage }
+        ]
       }).compileComponents();
 
       fixture = TestBed.createComponent(HomePage);
@@ -24,25 +47,31 @@ describe('HomePage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have a title', () => {
-    const titleElement: HTMLElement = fixture.nativeElement.querySelector('ion-title');
-    expect(titleElement.textContent).toContain('Bienvenido a la Página de Inicio');
+  it('should initialize storage', async () => {
+    await component.initStorage();
+    expect(mockStorage.create).toHaveBeenCalled();
   });
 
-  it('should update user model on input change', () => {
-    const userInputElement: HTMLInputElement = fixture.nativeElement.querySelector('ion-input[name="user"]');
-    userInputElement.value = 'usuario@example.com';
-    userInputElement.dispatchEvent(new Event('input'));
+  it('should redirect on successful login', () => {
+    const mockAlumno = { Gmail: 'test@duoc.cl', password: 'password' };
+    spyOn(component.api, 'getAlumnos').and.returnValue(of([mockAlumno]));
 
-    expect(component.user.Gmail).toEqual('usuario@example.com');
+    component.user = { Gmail: 'test@duoc.cl', password: 'password' };
+    component.rememberMe = true;
+
+    component.login();
+
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/inicio']);
+    expect(localStorage.getItem('credentials')).toBeTruthy();
   });
 
-  it('should call login method when login button is clicked', () => {
-    spyOn(component, 'login');
+  it('should handle unsuccessful login', () => {
+    spyOn(component.api, 'getAlumnos').and.returnValue(of([]));
 
-    const loginButtonElement: HTMLButtonElement = fixture.nativeElement.querySelector('ion-button[type="button"]');
-    loginButtonElement.click();
+    component.user = { Gmail: 'nonexistent@duoc.cl', password: 'wrongpassword' };
+    component.login();
 
-    expect(component.login).toHaveBeenCalled();
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/home']);
+    expect(localStorage.getItem('credentials')).toBeNull();
   });
 });
