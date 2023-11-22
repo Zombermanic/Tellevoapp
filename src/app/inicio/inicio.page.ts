@@ -33,7 +33,7 @@ export class InicioPage{
       console.log(this.user);
     });
   }
-  ngOnInit() {
+  /*ngOnInit() {
     // Verifica si el usuario ha iniciado sesión (por ejemplo, mediante la verificación de una bandera 'ingresado' en localStorage)
     if (localStorage.getItem('ingresado') === 'true') {
       // Recupera el nombre del usuario
@@ -44,7 +44,7 @@ export class InicioPage{
       }
     }
   }
-
+*/
   async cerrarSesion() {
     // Actualiza la opción "Recuérdame" a false al cerrar sesión
     localStorage.setItem('recordarUsuario', 'false');

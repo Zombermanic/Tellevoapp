@@ -1,41 +1,45 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NoIngresadoGuard } from './no-ingresado.guard';
-//import { IngresarGuard } from './ingresar.guard';
+import { GuardGuard } from './guard/guard.guard';
+
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    path: 'eleccion',
+    loadChildren: () => import('./eleccion/eleccion.module').then( m => m.EleccionPageModule) 
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'eleccion',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
+    
   },
   {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioPageModule),
-    
-    
+    canActivate: [GuardGuard]
   },
   {
     path: 'recuperar',
     loadChildren: () => import('./recuperar/recuperar.module').then(m => m.RecuperarPageModule),
-    canActivate: [NoIngresadoGuard]
   },
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
-    canActivate: [NoIngresadoGuard]
   }, 
   {
     path: 'conductor',
-    loadChildren: () => import('./conductor/conductor.module').then(m => m.ConductorPageModule)
+    loadChildren: () => import('./conductor/conductor.module').then(m => m.ConductorPageModule),
+    canActivate: [GuardGuard]
   },
+  
   {
-    path: 'eleccion',
-    loadChildren: () => import('./eleccion/eleccion.module').then( m => m.EleccionPageModule)
+    path: 'login-conductor',
+    loadChildren: () => import('./login-conductor/login-conductor.module').then( m => m.LoginConductorPageModule)
   },
   {
     path: '**',

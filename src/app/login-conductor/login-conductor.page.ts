@@ -6,12 +6,13 @@ import { Storage } from '@ionic/storage';
 import { GuardGuard } from '../guard/guard.guard';
 
 @Component({
-  selector: 'home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-login-conductor',
+  templateUrl: './login-conductor.page.html',
+  styleUrls: ['./login-conductor.page.scss'],
 })
-export class HomePage {
-  user = {
+export class LoginConductorPage {
+
+  auto = {
     Gmail: "",         
     password: ""     
   };
@@ -29,8 +30,8 @@ export class HomePage {
     this.api.getAlumnos().subscribe(
       (alumnos) => {
         if (alumnos && alumnos.length > 0) {
-          const usuario = this.user.Gmail.toLowerCase();
-          const password = this.user.password.toLowerCase();
+          const usuario = this.auto.Gmail.toLowerCase();
+          const password = this.auto.password.toLowerCase();
 
           const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.nombreAlumno.toLowerCase() === usuario);
 
@@ -38,18 +39,18 @@ export class HomePage {
             console.log('Autenticación exitosa');
             this.auth.setAuthenticationStatus(true);
 
-            const correoUsuario = this.user.Gmail;
+            const correoUsuario = this.auto.Gmail;
 
             this.redirigirSegunCorreo(correoUsuario);
 
             let navigationExtras: NavigationExtras = {
               state: {
-                user: this.user,
+                user: this.auto,
                 alumno: alumno
               }
             };
             if (this.rememberMe) {
-              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.user.Gmail, Contrasena: this.user.password }));
+              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.auto.Gmail, Contrasena: this.auto.password }));
               console.log('Credenciales guardadas en localStorage');
             } else {
               // Si no está marcado, elimina las credenciales almacenadas
@@ -78,15 +79,15 @@ export class HomePage {
       }
     );
   }
-// Método para redirigir según el correo electrónico
-private redirigirSegunCorreo(correo: string) {
-  // Obtener la parte del dominio del correo electrónico
-  const dominio = correo.split('@')[1];
+  private redirigirSegunCorreo(correo: string) {
+    // Obtener la parte del dominio del correo electrónico
+    const dominio = correo.split('@')[1];
 
-  // Lógica de redirección basada en la parte del dominio
-  if (dominio === 'pasajero.duoc.cl') {
-    // Redirigir a una página específica para correos con dominio "duoc.cl"
-    this.router.navigate(['/inicio']);
+  if (dominio === 'conductor.duoc.cl') {
+      // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
+      this.router.navigate(['/conductor']);
+    }
+  }
+
 }
-}
-}
+  
