@@ -27,5 +27,4 @@ canActivate(
         return this.router.navigate(['/home']);
       }
   }
-
 }

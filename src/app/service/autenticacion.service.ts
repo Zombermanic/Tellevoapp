@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AlumnosService {
-  private apiUrl = 'http://127.0.0.1:8000/api';
+  private apiUrl = 'https://2drgm3bg-8000.brs.devtunnels.ms/api';
 
   constructor(private http: HttpClient) {}
 

@@ -28,23 +28,13 @@ export class InicioPage{
     public navCtrl: NavController, 
   ) {
     this.activeroute.queryParams.subscribe(params => {
-      this.state = this.router.getCurrentNavigation()?.extras.state;
-      this.user = this.state.user;
-      console.log(this.user);
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.user = this.router.getCurrentNavigation()?.extras.state?.['user'];
+
+      }
     });
   }
-  /*ngOnInit() {
-    // Verifica si el usuario ha iniciado sesión (por ejemplo, mediante la verificación de una bandera 'ingresado' en localStorage)
-    if (localStorage.getItem('ingresado') === 'true') {
-      // Recupera el nombre del usuario
-      const usuarioString = localStorage.getItem('usuario');
-      if (usuarioString) {
-        const usuario = JSON.parse(usuarioString);
-        this.user = usuario.nombre;
-      }
-    }
-  }
-*/
+  
   async cerrarSesion() {
     // Actualiza la opción "Recuérdame" a false al cerrar sesión
     localStorage.setItem('recordarUsuario', 'false');

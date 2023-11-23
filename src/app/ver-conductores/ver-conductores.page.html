@@ -32,11 +32,16 @@
       <ion-list>
         <ion-item *ngFor="let conductor of conductores">
           <ion-label>
-            <h2>{{ conductor.user }} {{ conductor.Gmail}}</h2>
+            <h2>{{ conductor.user }} </h2>
+            <p>{{ conductor.Gmail}}</p>
             <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
+            <p> {{ conductor.HoraSalida}}</p>
+            <p>{{ conductor.valorViaje }}</p>
+            <ion-button type="button" shape="round" ></ion-button>
           </ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-content>
 </ion-content>
+<!--(click)="login()"-->
