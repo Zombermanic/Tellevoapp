@@ -33,7 +33,7 @@ export class LoginConductorPage {
           const usuario = this.auto.Gmail.toLowerCase();
           const password = this.auto.password.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.nombreAlumno.toLowerCase() === usuario);
+          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
 
           if (alumno && alumno.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');
