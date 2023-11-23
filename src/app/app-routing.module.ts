@@ -24,12 +24,12 @@ const routes: Routes = [
     canActivate: [GuardGuard]
   },
   {
-    path: 'recuperar',
-    loadChildren: () => import('./recuperar/recuperar.module').then(m => m.RecuperarPageModule),
+    path: 'ver-conductores',
+    loadChildren: () => import('./ver-conductores/ver-conductores.module').then( m => m.VerConductoresPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule),
+    path: 'recuperar',
+    loadChildren: () => import('./recuperar/recuperar.module').then(m => m.RecuperarPageModule),
   }, 
   {
     path: 'conductor',

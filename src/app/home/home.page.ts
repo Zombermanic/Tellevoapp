@@ -84,7 +84,7 @@ private redirigirSegunCorreo(correo: string) {
   const dominio = correo.split('@')[1];
 
   // Lógica de redirección basada en la parte del dominio
-  if (dominio === 'pasajero.duoc.cl') {
+  if (dominio === 'pduoc.cl') {
     // Redirigir a una página específica para correos con dominio "duoc.cl"
     this.router.navigate(['/inicio']);
 }

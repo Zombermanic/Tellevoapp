@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <img alt="Logo Duoc UC" src="assets/duoc.jpg" height="30" />
+    </ion-title>
+    <ion-buttons slot="end">
+
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let conductor of conductores">
+        <ion-label>
+          <h2>{{ conductor.nombreConductor }}</h2>
+
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <ion-content>
+      <ion-list>
+        <ion-item *ngFor="let conductor of conductores">
+          <ion-label>
+            <h2>{{ conductor.user }} {{ conductor.Gmail}}</h2>
+            <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-content>
+</ion-content>

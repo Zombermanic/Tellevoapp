@@ -83,7 +83,7 @@ export class LoginConductorPage {
     // Obtener la parte del dominio del correo electrónico
     const dominio = correo.split('@')[1];
 
-  if (dominio === 'conductor.duoc.cl') {
+  if (dominio === 'cduoc.cl') {
       // Redirigir a una página específica para correos con dominio "profesor.duoc.cl"
       this.router.navigate(['/conductor']);
     }
