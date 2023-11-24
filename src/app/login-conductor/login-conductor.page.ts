@@ -14,7 +14,8 @@ export class LoginConductorPage {
 
   auto = {
     Gmail: "",         
-    password: ""     
+    password: "",
+    nombreConductor:""    
   };
   rememberMe!: boolean;
 
@@ -32,8 +33,9 @@ export class LoginConductorPage {
         if (Conductores && Conductores.length > 0) {
           const usuario = this.auto.Gmail.toLowerCase();
           const password = this.auto.password.toLowerCase();
+          const nombreAl = this.auto.nombreConductor.toLowerCase();
 
-          const conductor = Conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.user.toLowerCase() === usuario);
+          const conductor = Conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.nombreConductor.toLowerCase() === nombreAl);
 
           if (conductor && conductor.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');

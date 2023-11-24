@@ -13,7 +13,8 @@ import { GuardGuard } from '../guard/guard.guard';
 export class HomePage {
   user = {
     Gmail: "",         
-    password: ""     
+    password: "",
+    nombreAlumno:""     
   };
   rememberMe!: boolean;
 
@@ -31,8 +32,9 @@ export class HomePage {
         if (alumnos && alumnos.length > 0) {
           const usuario = this.user.Gmail.toLowerCase();
           const password = this.user.password.toLowerCase();
+          const nombreAl = this.user.nombreAlumno.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
+          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.nombreAlumno.toLowerCase() === nombreAl);
 
           if (alumno && alumno.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');
@@ -50,6 +52,7 @@ export class HomePage {
             };
             if (this.rememberMe) {
               localStorage.setItem('credentials',  this.user.Gmail);
+              localStorage.setItem('nombre',this.user.nombreAlumno)
               console.log('Credenciales guardadas en localStorage');
             } else {
               // Si no está marcado, elimina las credenciales almacenadas
