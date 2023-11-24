@@ -49,7 +49,7 @@ export class HomePage {
               }
             };
             if (this.rememberMe) {
-              localStorage.setItem('credentials', JSON.stringify({ Gmail: this.user.Gmail, Contrasena: this.user.password }));
+              localStorage.setItem('credentials',  this.user.Gmail);
               console.log('Credenciales guardadas en localStorage');
             } else {
               // Si no está marcado, elimina las credenciales almacenadas

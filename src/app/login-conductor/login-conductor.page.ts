@@ -27,15 +27,15 @@ export class LoginConductorPage {
     console.log('Storage esta listo');
   }
   login() {
-    this.api.getAlumnos().subscribe(
-      (alumnos) => {
-        if (alumnos && alumnos.length > 0) {
+    this.api.getConductores().subscribe(
+      (Conductores) => {
+        if (Conductores && Conductores.length > 0) {
           const usuario = this.auto.Gmail.toLowerCase();
           const password = this.auto.password.toLowerCase();
 
-          const alumno = alumnos.find((alumno) => alumno.Gmail.toLowerCase() === usuario || alumno.user.toLowerCase() === usuario);
+          const conductor = Conductores.find((conductor) => conductor.Gmail.toLowerCase() === usuario || conductor.user.toLowerCase() === usuario);
 
-          if (alumno && alumno.password.toLowerCase() === password) {
+          if (conductor && conductor.password.toLowerCase() === password) {
             console.log('Autenticación exitosa');
             this.auth.setAuthenticationStatus(true);
 
@@ -46,7 +46,7 @@ export class LoginConductorPage {
             let navigationExtras: NavigationExtras = {
               state: {
                 user: this.auto,
-                alumno: alumno
+                conductor: conductor
               }
             };
             if (this.rememberMe) {

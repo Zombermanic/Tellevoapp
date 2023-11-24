@@ -23,11 +23,6 @@
 
 <ion-content [fullscreen]="true">
   <ion-content>
-<br>
-<br>
-<br>
-<br>
-<br>
     <ion-content>
       <ion-list>
         <ion-item *ngFor="let conductor of conductores">
@@ -37,11 +32,10 @@
             <p>{{ conductor.autoMarca }} - {{ conductor.autoPatente }}</p>
             <p> {{ conductor.HoraSalida}}</p>
             <p>{{ conductor.valorViaje }}</p>
-            <ion-button type="button" shape="round" ></ion-button>
+            <ion-button (click)="enviarCorreo(conductor.Gmail, correoUsuario)">Seleccionar</ion-button>
           </ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-content>
 </ion-content>
-<!--(click)="login()"-->

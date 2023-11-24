@@ -8,13 +8,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 })
 export class VerConductoresPage implements OnInit{
 
-  conductores: any [] = [];
+  conductores: any[] = [];
+  correoUsuario = localStorage.getItem('credentials') || '';
 
   constructor(private http: HttpClient) { }
 
+  async enviarCorreo(destinatarioConductor: string, destinatarioUsuario: string) {
+    console.log(destinatarioConductor);
+    console.log(destinatarioUsuario);
+    const asunto = 'Confirmar Reserva';
+
+    // Construye el cuerpo del mensaje con saltos de línea
+    const cuerpo = `Correo de confirmación reserva viaje.`;
+
+    // Genera el enlace 'mailto' con el destinatario específico
+    const mailtoLink = `mailto:${destinatarioConductor},${destinatarioUsuario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+
+    // Abre el cliente de correo predeterminado del usuario
+    window.location.href = mailtoLink;
+  }
   ngOnInit() {
     // Realizar la solicitud HTTP para obtener la lista de conductores
-    this.http.get<any[]>('http://127.0.0.1:8000/api/conductores').subscribe(
+    this.http.get<any[]>('https://2drgm3bg-8000.brs.devtunnels.ms/api/conductores').subscribe(
       conductores => {
         this.conductores = conductores;
       },
