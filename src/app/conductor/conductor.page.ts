@@ -33,6 +33,6 @@ export class ConductorPage implements OnInit {
 
     // Redirige al usuario a la página de inicio de sesión
     console.log('Cerrando sesión...');
-    this.navCtrl.navigateRoot('home');
+    this.navCtrl.navigateRoot('login-conductor');
   }
 }

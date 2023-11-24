@@ -1,0 +1,67 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 50%;
+    width: 80%;
+    height: auto;
+    
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-grid {
+    height: 100%;
+  
+    ion-row {
+      max-height: 33.33%;
+    }
+  }
+  
+  .animacion-element {
+    width: 150px;
+    height: 150px;
+    position: static; /* Agrega posición absoluta para que la animación esté fuera de flujo */
+    left: 0; /* Inicia desde la izquierda de la pantalla */
+    animation: moveAndDisappear 3s linear infinite; /* Incrementa la duración para un recorrido más largo */
+  }
+  
+  @keyframes moveAndDisappear {
+    0% {
+      transform: translateX(-50%); /* Empieza fuera de la pantalla a la izquierda */
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(300%); /* Termina fuera de la pantalla a la derecha */
+      opacity: 0;
+    }
+  }
+  
+  .labelpo {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .enlace {
+    color: blue;
+  }
+  
